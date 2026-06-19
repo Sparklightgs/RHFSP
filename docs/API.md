@@ -13,4 +13,4 @@ Creates application after consent and a valid registration `sessionToken`. Reque
 Request: `{ "applicationId": "RHFSP-2026-A7K9Q3M8", "phoneNumber": "080..." }`. Response exposes only name, ID, status, submission date, and last updated date.
 
 ## Cron
-`GET /api/cron/rotate-locks` and `GET /api/cron/process-notifications` require `Authorization: Bearer CRON_SECRET`.
+`GET /api/cron/rotate-locks` and `GET /api/cron/process-notifications` require `Authorization: Bearer CRON_SECRET`. The checked-in Vercel schedules run daily to satisfy Hobby cron limits.

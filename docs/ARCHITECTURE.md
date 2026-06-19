@@ -4,7 +4,7 @@ Next.js 15 App Router runs UI, Server Actions, and API Routes on Vercel. Supabas
 
 ## Security
 - Supabase Auth controls staff sessions; RLS restricts records by role and assigned state.
-- Registration form is gated by cryptographically random lock codes rotated every 3 hours.
+- Registration form is gated by cryptographically random lock codes. The default Vercel Hobby deployment rotates them daily with a 24-hour TTL; Pro deployments can use the original 3-hour cadence by changing the cron schedule and `REGISTRATION_LOCK_TTL_HOURS`.
 - NIN, BVN, and account number are encrypted with AES-256-GCM; hashes enforce duplicate checks.
 - PDFs intentionally contain only non-sensitive acknowledgment data.
 - Audit logs capture duplicate attempts, access attempts, and application lifecycle events.

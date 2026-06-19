@@ -16,6 +16,16 @@ The root page is `app/page.tsx`, so a correct deployment should return HTTP 200 
 
 Set the values from `.env.example` in Vercel before testing API routes that access Supabase, encryption, cron, email, or SMS integrations. At minimum, production submissions require Supabase settings, `FIELD_ENCRYPTION_KEY_BASE64`, and `REGISTRATION_SESSION_SECRET`.
 
+
+## Vercel Hobby cron limits
+
+Vercel Hobby projects only allow cron jobs that run once per day. The default `vercel.json` schedules both cron endpoints daily so Hobby deployments succeed:
+
+- `/api/cron/rotate-locks` at midnight UTC
+- `/api/cron/process-notifications` at 00:10 UTC
+
+Because the default hosted cron rotates locks daily, `.env.example` sets `REGISTRATION_LOCK_TTL_HOURS=24`. If you upgrade to Vercel Pro and want the original 3-hour lock cadence, set `REGISTRATION_LOCK_TTL_HOURS=3` and change the rotate-locks cron schedule to `0 */3 * * *`.
+
 ## Troubleshooting a Vercel 404
 
 If Vercel shows a 404 for the homepage, check the following first:
