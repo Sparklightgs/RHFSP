@@ -1,0 +1,40 @@
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "latest",
+    "@supabase/ssr": "latest",
+    "@supabase/supabase-js": "latest",
+    "@vercel/analytics": "latest",
+    "clsx": "latest",
+    "date-fns": "latest",
+    "lucide-react": "latest",
+    "next": "^15.3.0",
+    "pdf-lib": "latest",
+    "qrcode": "latest",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-hook-form": "latest",
+    "recharts": "latest",
+    "resend": "latest",
+    "tailwind-merge": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/qrcode": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "^15.3.0",
+    "postcss": "latest",
+    "tailwindcss": "^3.4.19",
+    "typescript": "latest"
+  }
+}
