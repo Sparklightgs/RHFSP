@@ -1,1 +1,17 @@
-{"crons":[{"path":"/api/cron/rotate-locks","schedule":"0 */3 * * *"},{"path":"/api/cron/process-notifications","schedule":"*/10 * * * *"}],"headers":[{"source":"/(.*)","headers":[{"key":"Strict-Transport-Security","value":"max-age=63072000; includeSubDomains; preload"}]}]}
+{
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "crons": [
+    { "path": "/api/cron/rotate-locks", "schedule": "0 */3 * * *" },
+    { "path": "/api/cron/process-notifications", "schedule": "*/10 * * * *" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+      ]
+    }
+  ]
+}
