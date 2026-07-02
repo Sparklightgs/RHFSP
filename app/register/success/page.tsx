@@ -1,0 +1,2 @@
+import { Card } from '@/components/ui/card';
+export default async function Success({searchParams}:{searchParams:Promise<{id?:string}>}){const params=await searchParams;return <main className="mx-auto max-w-lg p-4 py-16"><Card><h1 className="text-2xl font-bold text-brand-700">Application Received</h1><p className="my-4">Application ID: <b>{params.id}</b></p><p className="text-sm text-slate-600">SMS confirmation has been queued. Keep your Application ID for future verification.</p></Card></main>}

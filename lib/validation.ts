@@ -1,0 +1,5 @@
+import { z } from 'zod';
+export const accessCodeSchema=z.object({code:z.string().min(8).max(32),stateId:z.string().uuid().optional()});
+export const consentSchema=z.object({accepted:z.literal(true),signatureType:z.enum(['drawn','typed']),signature:z.string().min(2)});
+export const applicationSchema=z.object({sessionToken:z.string().min(20),fullName:z.string().min(3),gender:z.enum(['female','male','other']),dateOfBirth:z.string().min(8),phoneNumber:z.string().min(10).max(15),nin:z.string().length(11),bvn:z.string().length(11),stateId:z.string().uuid(),lgaId:z.string().uuid(),wardId:z.string().uuid(),residentialAddress:z.string().min(10),email:z.string().email().optional().or(z.literal('')),maritalStatus:z.string().min(2),occupation:z.string().min(2),householdSize:z.coerce.number().int().min(1).max(50),numberOfDependents:z.coerce.number().int().min(0).max(50),monthlyIncomeRange:z.string().min(2),disabilityStatus:z.string().optional(),bankName:z.string().min(2),accountName:z.string().min(3),accountNumber:z.string().min(10).max(10),consent:consentSchema});
+export type ApplicationInput=z.infer<typeof applicationSchema>;

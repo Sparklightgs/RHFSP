@@ -1,0 +1,2 @@
+import { NextResponse } from 'next/server'; import { verifyCron } from '@/lib/crypto'; import { rotateRegistrationLockCode } from '@/lib/registration-lock';
+export async function GET(req:Request){if(!verifyCron(req)) return NextResponse.json({error:'Unauthorized'},{status:401}); const {data,error}=await rotateRegistrationLockCode(); if(error) return NextResponse.json({error:error.message},{status:500}); return NextResponse.json({id:data?.id,expires_at:data?.expires_at});}
